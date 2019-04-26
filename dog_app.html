@@ -16744,6 +16744,9 @@ Test Accuracy: 11% (93/836)
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
 <p>As I started learning about different models at <code>torchvision.model</code> Resnet151 attracted me a lot, and also having smallest error values is another reason I have taken it and gave it a try.I didn't trained convnets and they worked great as a feature extractor for me. I modified the <code>fc</code> part and trained only this part.</p>
+<p>I choosed this approach because the amount of data i have is very small (only 8351 images). And the data I have is similar to the imagenet data as it has some dog images in it's dataset. So, with this small and similar data, I followed suggestions from lesson on transfer learning at udacity. And I used a new fully connected layer at the end in place of the older one. I initialised random weights to this part and kept the remaining pretrained weights unchanged.</p>
+<p>In order to avoid overfitting on the small data, I trained only the fully connected layer part by freezing the training on remaining data.</p>
+<p>I think this architecture is more suitable for the current problem as it was already trained on the large dataset of Imagenet and it works great as a feature extractor. This is not with the case of <code>model_scratch</code> where it say only a small amount of data. I think this was the reason behind why the <code>model_transfer</code> out performs <code>model_scratch</code>.</p>
 
 </div>
 </div>
